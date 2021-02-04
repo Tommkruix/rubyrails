@@ -1,0 +1,1561 @@
+Started GET "/users" for ::1 at 2020-11-05 23:50:27 -0500
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+:
+
+Started POST "/__better_errors/706c6ac0c2050ad9/variables" for ::1 at 2020-11-05 23:50:27 -0500
+Started GET "/" for ::1 at 2020-11-05 23:50:32 -0500
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+:
+
+Started POST "/__better_errors/1680bf24d484d739/variables" for ::1 at 2020-11-05 23:50:32 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20171117160543)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "content" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171117160543"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateComments (20171117180147)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "comment" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171117180147"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPostIdToComments (20171117180851)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "comments" ADD "post_id" integer[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171117180851"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-11-06 04:51:39.899992"], ["updated_at", "2020-11-06 04:51:39.899992"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-11-05 23:51:52 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 2530ms (Views: 2521.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-05 23:52:00 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (33.9ms)
+  Rendered posts/new.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 59ms (Views: 51.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/posts" for ::1 at 2020-11-05 23:52:17 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Oip/yeoSAyub87x3KiVSJiWb20w9ZMHZGap5FHw/BzSHcojN3W12ZyJAh9Q/m9jBeUeVuG6llZJjqPNl+6HlsQ==", "post"=>{"title"=>"Me and you", "content"=>"Just testing this motherfucker"}, "commit"=>"Create new post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Me and you"], ["content", "Just testing this motherfucker"], ["created_at", "2020-11-06 04:52:17.250444"], ["updated_at", "2020-11-06 04:52:17.250444"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 5ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-11-05 23:52:17 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_16780'
+
+Started POST "/__better_errors/59e27bba28b7c3d6/variables" for ::1 at 2020-11-05 23:52:17 -0500
+Started GET "/posts/1" for ::1 at 2020-11-05 23:54:47 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"edit", :controller=>"posts", :id=>nil}, missing required keys: [:id]:
+  app/views/posts/show.html.erb:15:in `_app_views_posts_show_html_erb__3296656599750153571_16940'
+
+Started POST "/__better_errors/6932197b3c6d7a73/variables" for ::1 at 2020-11-05 23:54:47 -0500
+Started GET "/posts/1" for ::1 at 2020-11-05 23:54:48 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::UrlGenerationError - No route matches {:action=>"edit", :controller=>"posts", :id=>nil}, missing required keys: [:id]:
+  app/views/posts/show.html.erb:15:in `_app_views_posts_show_html_erb__3296656599750153571_17020'
+
+Started POST "/__better_errors/adaaf1492d177e38/variables" for ::1 at 2020-11-05 23:54:48 -0500
+Started GET "/posts/1" for ::1 at 2020-11-05 23:55:41 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_17100'
+
+Started POST "/__better_errors/89cbc99b8fa039f7/variables" for ::1 at 2020-11-05 23:55:41 -0500
+Started GET "/posts/1" for ::1 at 2020-11-05 23:58:26 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 4ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_20520'
+
+Started POST "/__better_errors/ae6fc2e595b29821/variables" for ::1 at 2020-11-05 23:58:26 -0500
+Started GET "/posts/1" for ::1 at 2020-11-05 23:58:29 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 4ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_20600'
+
+Started POST "/__better_errors/fd3b1f7fb367e27f/variables" for ::1 at 2020-11-05 23:58:29 -0500
+Started GET "/posts/1" for ::1 at 2020-11-05 23:58:29 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 4ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_20680'
+
+Started POST "/__better_errors/f1c31693b80cd3ff/variables" for ::1 at 2020-11-05 23:58:29 -0500
+Started GET "/posts/1" for ::1 at 2020-11-05 23:58:30 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 4ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_20740'
+
+Started POST "/__better_errors/57b5177f9c96974a/variables" for ::1 at 2020-11-05 23:58:30 -0500
+Started GET "/posts/1" for ::1 at 2020-11-05 23:58:31 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 4ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_20800'
+
+Started POST "/__better_errors/bc6254fb9d860953/variables" for ::1 at 2020-11-05 23:58:31 -0500
+Started GET "/posts/1" for ::1 at 2020-11-05 23:58:32 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 5ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_20860'
+
+Started POST "/__better_errors/0d1a482e65bf85b0/variables" for ::1 at 2020-11-05 23:58:32 -0500
+Started GET "/posts/1" for ::1 at 2020-11-05 23:58:33 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 5ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_20920'
+
+Started POST "/__better_errors/0b2ac6a221906b97/variables" for ::1 at 2020-11-05 23:58:33 -0500
+Started GET "/posts/1" for ::1 at 2020-11-05 23:58:34 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 3ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_20980'
+
+Started POST "/__better_errors/b9da75b85093c64e/variables" for ::1 at 2020-11-05 23:58:34 -0500
+Started GET "/posts/1" for ::1 at 2020-11-05 23:58:35 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 3ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_21040'
+
+Started POST "/__better_errors/1d2b9402c8936470/variables" for ::1 at 2020-11-05 23:58:35 -0500
+Started GET "/posts/1" for ::1 at 2020-11-06 00:01:59 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 4ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_24440'
+
+Started POST "/__better_errors/8e5da4e2f221a9d6/variables" for ::1 at 2020-11-06 00:01:59 -0500
+Started GET "/posts/1" for ::1 at 2020-11-06 00:02:52 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 5ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_24520'
+
+Started POST "/__better_errors/01dcb70b20aa3bee/variables" for ::1 at 2020-11-06 00:02:52 -0500
+Started GET "/posts/1" for ::1 at 2020-11-06 00:02:53 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 4ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_24600'
+
+Started POST "/__better_errors/d7029e4d8104e0c0/variables" for ::1 at 2020-11-06 00:02:53 -0500
+Started GET "/posts/1" for ::1 at 2020-11-06 00:02:55 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 5ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_24680'
+
+Started POST "/__better_errors/e51b4c42ed456f27/variables" for ::1 at 2020-11-06 00:02:55 -0500
+Started GET "/posts/1" for ::1 at 2020-11-06 00:04:43 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+  Rendered posts/show.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.9ms)
+
+
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+
+NoMethodError - undefined method `title' for #<ActiveRecord::Relation []>:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_28320'
+
+Started POST "/__better_errors/ce82c6b4aa1820fa/variables" for ::1 at 2020-11-06 00:04:43 -0500
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+Started GET "/posts/1" for ::1 at 2020-11-06 00:04:44 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+  Rendered posts/show.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms)
+
+
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+
+NoMethodError - undefined method `title' for #<ActiveRecord::Relation []>:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_28440'
+
+Started POST "/__better_errors/47bd019102451133/variables" for ::1 at 2020-11-06 00:04:44 -0500
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+Started GET "/posts/1" for ::1 at 2020-11-06 00:04:45 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+  Rendered posts/show.html.erb within layouts/application (3.5ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms)
+
+
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+
+NoMethodError - undefined method `title' for #<ActiveRecord::Relation []>:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_28520'
+
+Started POST "/__better_errors/95a39530c4d04d1a/variables" for ::1 at 2020-11-06 00:04:45 -0500
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+Started GET "/posts/1" for ::1 at 2020-11-06 00:05:06 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.8ms)
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_32000'
+
+Started POST "/__better_errors/bcb525c81655a051/variables" for ::1 at 2020-11-06 00:05:06 -0500
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+Started GET "/post/1" for ::1 at 2020-11-06 00:05:10 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/post/1"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/posts/1" for ::1 at 2020-11-06 00:05:15 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms)
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_32640'
+
+Started POST "/__better_errors/8188bb5063591fcd/variables" for ::1 at 2020-11-06 00:05:15 -0500
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+Started GET "/posts/1" for ::1 at 2020-11-06 00:05:25 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+  Rendered posts/show.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.8ms)
+
+
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+
+NoMethodError - undefined method `title' for #<ActiveRecord::Relation []>:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_36120'
+
+Started POST "/__better_errors/396885cd9625e9eb/variables" for ::1 at 2020-11-06 00:05:25 -0500
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+  [1m[36mCACHE Post Load (0.0ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+Started GET "/posts/1" for ::1 at 2020-11-06 00:05:33 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms)
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_36200'
+
+Started POST "/__better_errors/783e0749cb960b84/variables" for ::1 at 2020-11-06 00:05:33 -0500
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+Started GET "/posts/1" for ::1 at 2020-11-06 00:05:34 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms)
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_36280'
+
+Started POST "/__better_errors/dcbec99758035450/variables" for ::1 at 2020-11-06 00:05:34 -0500
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+Started GET "/posts/1" for ::1 at 2020-11-06 00:05:35 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.1ms)
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_36340'
+
+Started POST "/__better_errors/a1dc3c265b0a9347/variables" for ::1 at 2020-11-06 00:05:35 -0500
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+Started GET "/" for ::1 at 2020-11-06 00:05:41 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 35ms (Views: 32.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-11-06 00:05:44 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms)
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb__3296656599750153571_36520'
+
+Started POST "/__better_errors/8c7d58d689e4f088/variables" for ::1 at 2020-11-06 00:05:45 -0500
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY created_at DESC LIMIT ? OFFSET ?[0m  [["LIMIT", 4], ["OFFSET", 1]]
+Started GET "/posts/1" for ::1 at 2020-11-06 00:09:23 -0500
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb___99946900263424431_15220'
+
+Started POST "/__better_errors/e798576b89b13363/variables" for ::1 at 2020-11-06 00:09:23 -0500
+Started GET "/posts/1" for ::1 at 2020-11-06 00:09:24 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb___99946900263424431_15400'
+
+Started POST "/__better_errors/57a6154d54040d48/variables" for ::1 at 2020-11-06 00:09:24 -0500
+Started GET "/posts/1" for ::1 at 2020-11-06 00:09:25 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb___99946900263424431_15480'
+
+Started POST "/__better_errors/d6cb54a62e709c4b/variables" for ::1 at 2020-11-06 00:09:25 -0500
+Started GET "/posts/1" for ::1 at 2020-11-06 00:09:26 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb___99946900263424431_15560'
+
+Started POST "/__better_errors/8972f9425a88fe5b/variables" for ::1 at 2020-11-06 00:09:26 -0500
+Started GET "/" for ::1 at 2020-11-06 00:09:30 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 197ms (Views: 189.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-11-06 00:09:33 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb___99946900263424431_16040'
+
+Started POST "/__better_errors/bf4861fb68ba80b8/variables" for ::1 at 2020-11-06 00:09:33 -0500
+Started GET "/posts/1" for ::1 at 2020-11-06 00:10:39 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 4ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb___99946900263424431_19480'
+
+Started POST "/__better_errors/c2547c0fb22c5683/variables" for ::1 at 2020-11-06 00:10:39 -0500
+Started GET "/posts/1" for ::1 at 2020-11-06 00:10:40 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 4ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb___99946900263424431_19560'
+
+Started POST "/__better_errors/ccbe10c199a9846c/variables" for ::1 at 2020-11-06 00:10:40 -0500
+Started GET "/posts/1" for ::1 at 2020-11-06 00:10:44 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 4ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb___99946900263424431_19660'
+
+Started POST "/__better_errors/8539ba17b5ec7641/variables" for ::1 at 2020-11-06 00:10:45 -0500
+Started GET "/posts/1" for ::1 at 2020-11-06 00:10:45 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 4ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb___99946900263424431_19720'
+
+Started POST "/__better_errors/71b541ac85031a3f/variables" for ::1 at 2020-11-06 00:10:45 -0500
+Started GET "/posts/1" for ::1 at 2020-11-06 00:10:46 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (2.4ms)
+Completed 500 Internal Server Error in 6ms
+
+
+
+NoMethodError - undefined method `title' for nil:NilClass:
+  app/views/posts/show.html.erb:1:in `_app_views_posts_show_html_erb___99946900263424431_19780'
+
+Started POST "/__better_errors/4fd6a6d06e8325be/variables" for ::1 at 2020-11-06 00:10:46 -0500
+Started GET "/posts/1" for ::1 at 2020-11-06 00:11:35 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (47.8ms)
+  Rendered posts/show.html.erb within layouts/application (53.6ms)
+Completed 200 OK in 98ms (Views: 78.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2020-11-06 00:11:44 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.4ms)
+  Rendered posts/edit.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/posts/1" for ::1 at 2020-11-06 00:11:50 -0500
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eWlUgjSOLUaU5Y4pnUGMdIPg03bBe1sw4oDoUQinHI6t1GC6Ug3eqvbrPh2JZCIitpU9CC8pYxXeSFjQ11tRFw==", "post"=>{"title"=>"Me and you&", "content"=>"Just testing this motherfucker"}, "commit"=>"Create new post", "id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `update' for nil:NilClass:
+  app/controllers/posts_controller.rb:29:in `update'
+
+Started POST "/__better_errors/ae3ce6161dd07989/variables" for ::1 at 2020-11-06 00:11:50 -0500
+Started PATCH "/posts/1" for ::1 at 2020-11-06 00:12:16 -0500
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eWlUgjSOLUaU5Y4pnUGMdIPg03bBe1sw4oDoUQinHI6t1GC6Ug3eqvbrPh2JZCIitpU9CC8pYxXeSFjQ11tRFw==", "post"=>{"title"=>"Me and you&", "content"=>"Just testing this motherfucker"}, "commit"=>"Create new post", "id"=>"1"}
+Completed 500 Internal Server Error in 1ms
+
+
+
+NoMethodError - undefined method `update' for nil:NilClass:
+  app/controllers/posts_controller.rb:29:in `update'
+
+Started POST "/__better_errors/35258accb4de3623/variables" for ::1 at 2020-11-06 00:12:16 -0500
+Started PATCH "/posts/1" for ::1 at 2020-11-06 00:13:21 -0500
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eWlUgjSOLUaU5Y4pnUGMdIPg03bBe1sw4oDoUQinHI6t1GC6Ug3eqvbrPh2JZCIitpU9CC8pYxXeSFjQ11tRFw==", "post"=>{"title"=>"Me and you&", "content"=>"Just testing this motherfucker"}, "commit"=>"Create new post", "id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "posts" SET "title" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["title", "Me and you&"], ["updated_at", "2020-11-06 05:13:21.590485"], ["id", 1]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 14ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-11-06 00:13:21 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (13.3ms)
+  Rendered posts/show.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 35ms (Views: 33.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2020-11-06 00:13:31 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 20ms (Views: 18.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-06 00:13:39 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.6ms)
+  Rendered posts/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 23ms (Views: 21.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2020-11-06 00:13:53 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RUupqq+PjD6oX8UDrHMuKic+AdFNgBlYdmAUDNQRtzP4E16umPD5chHs/qC5zaTNe+JPJR5BTRMMYp59U49Vtg==", "post"=>{"title"=>"Post2", "content"=>"How are you all doing at home."}, "commit"=>"Create new post"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Post2"], ["content", "How are you all doing at home."], ["created_at", "2020-11-06 05:13:53.995987"], ["updated_at", "2020-11-06 05:13:53.995987"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 3ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/2" for ::1 at 2020-11-06 00:13:54 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (4.9ms)
+  Rendered posts/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2020-11-06 00:13:58 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/2" for ::1 at 2020-11-06 00:14:02 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (4.4ms)
+  Rendered posts/show.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 30ms (Views: 27.5ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/posts/2" for ::1 at 2020-11-06 00:14:05 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xdXeVohcWd33zwFRrLMHVmiH+56Jg5ol5owBel+d1EHnxeVVGVBgrLPyIKi0GMW8vntbH8qmUowaUhBHowfe7g==", "id"=>"2"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 2]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 4ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/posts" for ::1 at 2020-11-06 00:14:05 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2020-11-06 00:14:07 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2020-11-06 00:16:44 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 179ms (Views: 169.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2020-11-06 00:20:23 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 22ms (Views: 20.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2020-11-06 00:20:55 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 25ms (Views: 22.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-06 00:21:20 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (38.0ms)
+  Rendered posts/new.html.erb within layouts/application (39.1ms)
+Completed 200 OK in 55ms (Views: 53.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-06 00:21:52 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.2ms)
+  Rendered posts/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-06 00:22:38 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (2.6ms)
+  Rendered posts/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 18ms (Views: 17.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-06 00:23:08 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (2.8ms)
+  Rendered posts/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-11-06 08:41:36 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 213ms (Views: 201.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2020-11-06 08:42:26 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-11-06 08:42:27 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2020-11-06 08:42:28 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2020-11-06 08:42:29 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2020-11-06 08:42:55 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2020-11-06 08:52:01 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 27ms (Views: 24.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-06 08:52:03 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (53.4ms)
+  Rendered posts/new.html.erb within layouts/application (54.7ms)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007fc5d8c3adc0>:
+  app/views/posts/_form.html.erb:11:in `block in _app_views_posts__form_html_erb__1846058632873150279_19680'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__1846058632873150279_19680'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___3716844950214642762_19660'
+
+Started POST "/__better_errors/02e86647a772286e/variables" for ::1 at 2020-11-06 08:52:03 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 08:52:21 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.4ms)
+  Rendered posts/new.html.erb within layouts/application (7.5ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007fc5de802e78>:
+  app/views/posts/_form.html.erb:11:in `block in _app_views_posts__form_html_erb__1846058632873150279_19880'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__1846058632873150279_19880'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___3716844950214642762_19860'
+
+Started POST "/__better_errors/e59d18921287af7d/variables" for ::1 at 2020-11-06 08:52:22 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 08:52:23 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (7.9ms)
+  Rendered posts/new.html.erb within layouts/application (8.9ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007fc5d7e04e18>:
+  app/views/posts/_form.html.erb:11:in `block in _app_views_posts__form_html_erb__1846058632873150279_19960'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__1846058632873150279_19960'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___3716844950214642762_19940'
+
+Started POST "/__better_errors/d189764492cf6ee9/variables" for ::1 at 2020-11-06 08:52:23 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 08:52:24 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (9.9ms)
+  Rendered posts/new.html.erb within layouts/application (10.9ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007fc5d7c16778>:
+  app/views/posts/_form.html.erb:11:in `block in _app_views_posts__form_html_erb__1846058632873150279_20060'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__1846058632873150279_20060'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___3716844950214642762_20040'
+
+Started POST "/__better_errors/8f3c2b5afd819f31/variables" for ::1 at 2020-11-06 08:52:24 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 08:52:24 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (7.1ms)
+  Rendered posts/new.html.erb within layouts/application (8.1ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007fc5d7e87bb0>:
+  app/views/posts/_form.html.erb:11:in `block in _app_views_posts__form_html_erb__1846058632873150279_20140'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__1846058632873150279_20140'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___3716844950214642762_20120'
+
+Started POST "/__better_errors/dc0c1fac11ff5422/variables" for ::1 at 2020-11-06 08:52:24 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 08:52:25 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (9.6ms)
+  Rendered posts/new.html.erb within layouts/application (10.8ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007fc5d682b308>:
+  app/views/posts/_form.html.erb:11:in `block in _app_views_posts__form_html_erb__1846058632873150279_20220'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__1846058632873150279_20220'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___3716844950214642762_20200'
+
+Started POST "/__better_errors/82e4021fa115fad0/variables" for ::1 at 2020-11-06 08:52:25 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/posts/new" for ::1 at 2020-11-06 08:53:43 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (35.5ms)
+  Rendered posts/new.html.erb within layouts/application (36.8ms)
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007fa71c051750>:
+  app/views/posts/_form.html.erb:11:in `block in _app_views_posts__form_html_erb__797780647921094113_15300'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__797780647921094113_15300'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___1797585814293003245_15280'
+
+Started POST "/__better_errors/a28af94d912e6458/variables" for ::1 at 2020-11-06 08:53:43 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 08:53:45 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.1ms)
+  Rendered posts/new.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007fa71771a348>:
+  app/views/posts/_form.html.erb:11:in `block in _app_views_posts__form_html_erb__797780647921094113_15520'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__797780647921094113_15520'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___1797585814293003245_15500'
+
+Started POST "/__better_errors/1353eaf03b2114bd/variables" for ::1 at 2020-11-06 08:53:45 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 08:53:46 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.9ms)
+  Rendered posts/new.html.erb within layouts/application (8.1ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007fa71c15f070>:
+  app/views/posts/_form.html.erb:11:in `block in _app_views_posts__form_html_erb__797780647921094113_15620'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__797780647921094113_15620'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___1797585814293003245_15600'
+
+Started POST "/__better_errors/04d68ca51c3ca001/variables" for ::1 at 2020-11-06 08:53:46 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 08:53:47 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.5ms)
+  Rendered posts/new.html.erb within layouts/application (7.3ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007fa718a00d18>:
+  app/views/posts/_form.html.erb:11:in `block in _app_views_posts__form_html_erb__797780647921094113_15720'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__797780647921094113_15720'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___1797585814293003245_15700'
+
+Started POST "/__better_errors/ddadf9c1e35a8936/variables" for ::1 at 2020-11-06 08:53:47 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 08:55:28 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.7ms)
+  Rendered posts/new.html.erb within layouts/application (7.7ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007fa716bd7aa8>:
+  app/views/posts/_form.html.erb:11:in `block in _app_views_posts__form_html_erb__797780647921094113_15820'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__797780647921094113_15820'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___1797585814293003245_15800'
+
+Started POST "/__better_errors/c3d69be00ed64fc1/variables" for ::1 at 2020-11-06 08:55:28 -0500
+Started GET "/" for ::1 at 2020-11-06 08:55:35 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 178ms (Views: 176.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2020-11-06 08:55:37 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-06 08:55:38 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (24.6ms)
+  Rendered posts/new.html.erb within layouts/application (25.5ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007fa718345f28>:
+  app/views/posts/_form.html.erb:11:in `block in _app_views_posts__form_html_erb__797780647921094113_16240'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__797780647921094113_16240'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___1797585814293003245_16220'
+
+Started POST "/__better_errors/1edbd2d555d8b466/variables" for ::1 at 2020-11-06 08:55:38 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 08:57:02 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (38.2ms)
+  Rendered posts/new.html.erb within layouts/application (39.5ms)
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007f9a1b179938>:
+  app/views/posts/_form.html.erb:11:in `block in _app_views_posts__form_html_erb__3687157752536117651_15300'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__3687157752536117651_15300'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___3547053918859831539_15280'
+
+Started POST "/__better_errors/a20cf3117df13c95/variables" for ::1 at 2020-11-06 08:57:02 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 08:57:04 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.0ms)
+  Rendered posts/new.html.erb within layouts/application (6.7ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007f9a1b1c6350>:
+  app/views/posts/_form.html.erb:11:in `block in _app_views_posts__form_html_erb__3687157752536117651_15520'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__3687157752536117651_15520'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___3547053918859831539_15500'
+
+Started POST "/__better_errors/9dffdf00fc4e9693/variables" for ::1 at 2020-11-06 08:57:04 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 08:57:05 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.6ms)
+  Rendered posts/new.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007f9a182e5ba8>:
+  app/views/posts/_form.html.erb:11:in `block in _app_views_posts__form_html_erb__3687157752536117651_15620'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__3687157752536117651_15620'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___3547053918859831539_15600'
+
+Started POST "/__better_errors/79066c83cc63e8ec/variables" for ::1 at 2020-11-06 08:57:05 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 08:57:06 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.3ms)
+  Rendered posts/new.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007f9a19816a18>:
+  app/views/posts/_form.html.erb:11:in `block in _app_views_posts__form_html_erb__3687157752536117651_15720'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__3687157752536117651_15720'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___3547053918859831539_15700'
+
+Started POST "/__better_errors/990c123d91bb805e/variables" for ::1 at 2020-11-06 08:57:06 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 08:59:49 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.2ms)
+  Rendered posts/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 198ms (Views: 197.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-06 08:59:57 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.0ms)
+  Rendered posts/new.html.erb within layouts/application (6.8ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007f9a19f7dd10>:
+  app/views/posts/_form.html.erb:17:in `block in _app_views_posts__form_html_erb__3687157752536117651_16020'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__3687157752536117651_16020'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___3547053918859831539_16000'
+
+Started POST "/__better_errors/b16cbb434687578d/variables" for ::1 at 2020-11-06 08:59:57 -0500
+Started POST "/__better_errors/b16cbb434687578d/variables" for ::1 at 2020-11-06 09:00:12 -0500
+Started POST "/__better_errors/b16cbb434687578d/variables" for ::1 at 2020-11-06 09:00:13 -0500
+Started GET "/" for ::1 at 2020-11-06 10:10:31 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 202ms (Views: 191.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-06 10:10:41 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (53.3ms)
+  Rendered posts/new.html.erb within layouts/application (54.3ms)
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007febeaf344d0>:
+  app/views/posts/_form.html.erb:17:in `block in _app_views_posts__form_html_erb___3227875243347459809_15560'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb___3227875243347459809_15560'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___1683636192489806712_15540'
+
+Started POST "/__better_errors/c7548575de23e515/variables" for ::1 at 2020-11-06 10:10:41 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 10:24:45 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (8.0ms)
+  Rendered posts/new.html.erb within layouts/application (8.8ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007febebdb2ea8>:
+  app/views/posts/_form.html.erb:17:in `block in _app_views_posts__form_html_erb___3227875243347459809_15780'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb___3227875243347459809_15780'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___1683636192489806712_15760'
+
+Started POST "/__better_errors/793793dc3faaf8e0/variables" for ::1 at 2020-11-06 10:24:45 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 10:25:46 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (6.7ms)
+  Rendered posts/new.html.erb within layouts/application (7.5ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007febec38ba78>:
+  app/views/posts/_form.html.erb:17:in `block in _app_views_posts__form_html_erb___3227875243347459809_15900'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb___3227875243347459809_15900'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___1683636192489806712_15880'
+
+Started POST "/__better_errors/e3e86fb9e6fbade9/variables" for ::1 at 2020-11-06 10:25:46 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/posts/new" for ::1 at 2020-11-06 10:44:37 -0500
+  [1m[35m (5.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (39.2ms)
+  Rendered posts/new.html.erb within layouts/application (40.4ms)
+Completed 500 Internal Server Error in 56ms (ActiveRecord: 0.5ms)
+
+
+
+NoMethodError - undefined method `email' for #<Post:0x00007f9058e6c658>:
+  app/views/posts/_form.html.erb:17:in `block in _app_views_posts__form_html_erb__2171841383501546164_15300'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__2171841383501546164_15300'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb__350586725170485553_15280'
+
+Started POST "/__better_errors/acdfc2c7b6f50bed/variables" for ::1 at 2020-11-06 10:44:37 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 10:44:58 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.1ms)
+  Rendered posts/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 145ms (Views: 143.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-06 10:46:56 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.9ms)
+  Rendered posts/new.html.erb within layouts/application (5.7ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `name' for #<Post:0x00007f9058ef8bf8>:
+  app/views/posts/_form.html.erb:5:in `block in _app_views_posts__form_html_erb__2171841383501546164_15760'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__2171841383501546164_15760'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb__350586725170485553_15740'
+
+Started POST "/__better_errors/eaf41ad16ab4498b/variables" for ::1 at 2020-11-06 10:46:56 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 10:50:03 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (5.8ms)
+  Rendered posts/new.html.erb within layouts/application (6.8ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `name' for #<Post:0x00007f905e81a600>:
+  app/views/posts/_form.html.erb:5:in `block in _app_views_posts__form_html_erb__2171841383501546164_15880'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__2171841383501546164_15880'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb__350586725170485553_15860'
+
+Started POST "/__better_errors/d0631dbb8755ee66/variables" for ::1 at 2020-11-06 10:50:03 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 10:50:04 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.5ms)
+  Rendered posts/new.html.erb within layouts/application (5.3ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `name' for #<Post:0x00007f9058194430>:
+  app/views/posts/_form.html.erb:5:in `block in _app_views_posts__form_html_erb__2171841383501546164_16000'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__2171841383501546164_16000'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb__350586725170485553_15980'
+
+Started POST "/__better_errors/565d591d693c5735/variables" for ::1 at 2020-11-06 10:50:04 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 10:50:05 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.2ms)
+  Rendered posts/new.html.erb within layouts/application (5.1ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `name' for #<Post:0x00007f905e178cc0>:
+  app/views/posts/_form.html.erb:5:in `block in _app_views_posts__form_html_erb__2171841383501546164_16120'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb__2171841383501546164_16120'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb__350586725170485553_16100'
+
+Started POST "/__better_errors/49ccd98630584ada/variables" for ::1 at 2020-11-06 10:50:05 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 10:50:23 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (34.4ms)
+  Rendered posts/new.html.erb within layouts/application (35.8ms)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 0.4ms)
+
+
+
+NoMethodError - undefined method `name' for #<Post:0x00007febd0bedd68>:
+  app/views/posts/_form.html.erb:5:in `block in _app_views_posts__form_html_erb___3707902642081681174_15300'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb___3707902642081681174_15300'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___749020609140535654_15280'
+
+Started POST "/__better_errors/ba935051df7870d0/variables" for ::1 at 2020-11-06 10:50:23 -0500
+Started GET "/posts/new" for ::1 at 2020-11-06 10:50:24 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.2ms)
+  Rendered posts/new.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `name' for #<Post:0x00007febd7841dc0>:
+  app/views/posts/_form.html.erb:5:in `block in _app_views_posts__form_html_erb___3707902642081681174_15520'
+  app/views/posts/_form.html.erb:2:in `_app_views_posts__form_html_erb___3707902642081681174_15520'
+  app/views/posts/new.html.erb:2:in `_app_views_posts_new_html_erb___749020609140535654_15500'
+
+Started POST "/__better_errors/fdba4b47639735f2/variables" for ::1 at 2020-11-06 10:50:24 -0500
+Started GET "/" for ::1 at 2020-11-06 10:50:27 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms)
+
+
+
+NoMethodError - undefined method `name' for #<Post:0x00007febd1782700>:
+  app/views/posts/index.html.erb:10:in `block in _app_views_posts_index_html_erb___575072100630325637_15600'
+  app/views/posts/index.html.erb:5:in `_app_views_posts_index_html_erb___575072100630325637_15600'
+
+Started POST "/__better_errors/d84425e836600ee0/variables" for ::1 at 2020-11-06 10:50:27 -0500
+Started GET "/" for ::1 at 2020-11-06 12:07:23 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 178ms (Views: 177.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-06 12:07:30 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (22.5ms)
+  Rendered posts/new.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 40ms (Views: 38.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-11-06 12:07:34 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (11.7ms)
+  Rendered posts/show.html.erb within layouts/application (33.5ms)
+Completed 200 OK in 50ms (Views: 45.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-11-06 12:08:02 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2020-11-06 12:08:12 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.4ms)
+  Rendered posts/edit.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2020-11-06 12:09:22 -0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.5ms)
+  Rendered posts/edit.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-06 12:09:38 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.7ms)
+  Rendered posts/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-11-06 12:09:42 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/1" for ::1 at 2020-11-06 12:09:45 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 18ms (Views: 15.7ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/posts/1" for ::1 at 2020-11-06 12:09:48 -0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"pPSeJjIkSxjLo8kn/C9ERRIhYbJ7Es47Hd8K83xDwTnCxiX7cehaUa8cLMXD+7HxJbNMgAnTZ0JP1nkgjK5Y8Q==", "id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 5ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/posts" for ::1 at 2020-11-06 12:09:48 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-06 12:09:49 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (3.5ms)
+  Rendered posts/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2020-11-06 12:13:22 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SAMS/Mo9sl3TDNldmILOQrvewW7QkOc2F5DNKAderzata1hm1iMwSP1ZA0oA+qgzX0SO1O5xdK6Yjr55/MqJ3g==", "post"=>{"title"=>"Ajiferuke Oluwatomiwa", "content"=>"Fullstack Develop"}, "commit"=>"Create new User"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Ajiferuke Oluwatomiwa"], ["content", "Fullstack Develop"], ["created_at", "2020-11-06 17:13:22.856356"], ["updated_at", "2020-11-06 17:13:22.856356"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 4ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/posts/3" for ::1 at 2020-11-06 12:13:22 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-06 12:13:41 -0500
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (4.1ms)
+  Rendered posts/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2020-11-06 12:14:04 -0500
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"12l6Pp6mPUAR9wj6PHD53DwqxDzUkXZ7sU9HIo4PRc4yATCkgri/VT+i0u2kCJ+t2LCLhupw5eM+UTRzdZtjJg==", "post"=>{"title"=>"Esiegbe Emmanuel", "content"=>"Data Analyst"}, "commit"=>"Create new User"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Esiegbe Emmanuel"], ["content", "Data Analyst"], ["created_at", "2020-11-06 17:14:04.882478"], ["updated_at", "2020-11-06 17:14:04.882478"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 3ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/posts/4" for ::1 at 2020-11-06 12:14:04 -0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2020-11-06 12:14:06 -0500
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY created_at DESC[0m
+  Rendered posts/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+
+
